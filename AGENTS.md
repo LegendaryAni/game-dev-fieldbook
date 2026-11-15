@@ -43,6 +43,8 @@
 
 ## 新增或更新一篇筆記
 
+新增或修改筆記文字時，請只編輯 `content/notes/` 中對應的 JSON 來源檔，再執行 `npm run build` 產生首頁與文章 HTML。
+
 1. 閱讀本檔及 `content/notes/match-flow.json`，確認主題與路徑尚未重複。更新文章時，編輯原本的來源檔以保留網址。
 2. 依欄位格式撰寫來源檔。一般筆記只需要一個 JSON 檔；有專屬封面時，再加入同名 WebP。
 3. 從 repo 根目錄執行 `npm run build` 及 `npm run check`。若檢查失敗，依訊息更正來源後重建。
