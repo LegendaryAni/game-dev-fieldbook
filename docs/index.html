@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="從一個遊戲機制開始，動手做個小實驗，再看結果是否符合預期。">
-  <meta name="theme-color" content="#121511">
+  <meta name="theme-color" content="#080a12">
   <title>遊戲開發實驗簿</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/site.css">
+  <link rel="stylesheet" href="./assets/site.css?v=1f7aac773530">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
@@ -22,30 +22,34 @@
     </div>
   </header>
   <main id="main" tabindex="-1">
-    <section class="hero wrap" aria-labelledby="site-title">
-      <div class="hero-copy">
-        <h1 id="site-title">遊戲開發實驗簿</h1>
-        <p>從一個遊戲機制開始，動手做個小實驗，再看結果是否符合預期。</p>
-        <a class="hero-link" href="#notes">瀏覽筆記 <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="experiment-map" role="group" aria-label="實驗流程">
-        <ol class="experiment-flow" role="list">
-          <li>提問</li><li>試做</li><li>驗證</li>
-        </ol>
+    <section class="hero" aria-labelledby="site-title">
+      <picture class="hero-art">
+        <source media="(max-width: 47.99rem)" srcset="./assets/art/hero/mobile.webp" width="640" height="812">
+        <img src="./assets/art/hero/desktop.webp" width="1672" height="940" fetchpriority="high" alt="">
+      </picture>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1 id="site-title">遊戲開發<span>實驗簿</span></h1>
+          <p>從一個遊戲機制開始，動手做個小實驗，再看結果是否符合預期。</p>
+          <a class="hero-link" href="#notes">瀏覽筆記 <span aria-hidden="true">↓</span></a>
+        </div>
       </div>
     </section>
     <section class="notes wrap" id="notes" aria-labelledby="notes-title" tabindex="-1">
       <div class="section-heading"><h2 id="notes-title">筆記索引</h2><p>3 篇筆記</p></div>
       <ul class="note-list" role="list">
         <li><a class="note-link" href="./notes/match-flow/">
+          <img class="note-art" src="./assets/art/match-flow.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
           <span class="note-copy"><strong>一場對局怎麼開始與結束？</strong><span>用一場有倒數、得分與結算的小對局，練習把規則拆成可以逐一驗證的狀態。</span></span>
           <span class="note-arrow" aria-hidden="true">↗</span>
         </a></li>
         <li><a class="note-link" href="./notes/hit-feedback/">
+          <img class="note-art" src="./assets/art/hit-feedback.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
           <span class="note-copy"><strong>命中時，玩家需要知道什麼？</strong><span>用固定距離的命中練習，檢查準星提示和目標生命值是否在同一次有效命中時更新。</span></span>
           <span class="note-arrow" aria-hidden="true">↗</span>
         </a></li>
         <li><a class="note-link" href="./notes/spawn-point-safety/">
+          <img class="note-art" src="./assets/art/spawn-point-safety.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
           <span class="note-copy"><strong>重生點如何避免玩家一出生就被擊倒？</strong><span>用三個候選重生點比較固定出生與依場上情況選點，練習量測玩家重生後反應的時間。</span></span>
           <span class="note-arrow" aria-hidden="true">↗</span>
         </a></li>

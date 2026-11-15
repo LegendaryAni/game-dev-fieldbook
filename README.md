@@ -21,4 +21,15 @@ npm run preview
 
 讀取 [AGENTS.md](AGENTS.md) 和 [內容範例](content/notes/match-flow.json)，並在 `content/notes/` 新增一個符合欄位格式的 JSON 檔。執行 `npm run build` 即可把新筆記加到首頁索引與共用文章版型。`npm run check` 會核對來源及 HTML 是否一致。
 
+## 美術素材
+
+本站以 OpenAI ImageGen 製作原創賽博街機概念圖，再轉成 WebP。封面可依筆記擴充，沒有專屬封面時會套用共用圖片。
+
+| 素材 | 生成主題 |
+| --- | --- |
+| [首頁主視覺](docs/assets/art/hero/desktop.webp) | 雨夜的霓虹街機城，青色圓形入口位於右側，左側保留標題空間 |
+| [對局流程](docs/assets/art/match-flow.webp) | 有青色起點與洋紅得分區的對稱競技場 |
+| [命中回饋](docs/assets/art/hit-feedback.webp) | 懸浮圓形全像標靶與洋紅命中光效 |
+| [重生點選擇](docs/assets/art/spawn-point-safety.webp) | 有護牆與遮棚的重生區，轉角外接一條霓虹長廊 |
+
 GitHub Pages 從 `coursework` 分支的 `/docs` 提供靜態網站。

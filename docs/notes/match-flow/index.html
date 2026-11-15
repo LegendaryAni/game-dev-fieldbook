@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="用一場有倒數、得分與結算的小對局，練習把規則拆成可以逐一驗證的狀態。">
-  <meta name="theme-color" content="#121511">
+  <meta name="theme-color" content="#080a12">
   <title>一場對局怎麼開始與結束？｜遊戲開發實驗簿</title>
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/site.css?v=1f7aac773530">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
@@ -22,32 +22,38 @@
     </div>
   </header>
   <main id="main" tabindex="-1">
-    <article class="article wrap">
+    <article class="article">
       <header class="article-header">
-        <h1>一場對局怎麼開始與結束？</h1>
-        <p>用一場有倒數、得分與結算的小對局，練習把規則拆成可以逐一驗證的狀態。</p>
+        <img class="article-art" src="../../assets/art/match-flow.webp" width="960" height="540" fetchpriority="high" alt="">
+        <div class="wrap article-intro">
+          <a class="crumb" href="../../#notes"><span aria-hidden="true">←</span> 筆記索引</a>
+          <h1>一場對局怎麼開始與結束？</h1>
+          <p>用一場有倒數、得分與結算的小對局，練習把規則拆成可以逐一驗證的狀態。</p>
+        </div>
       </header>
-      <section>
-        <h2>想解決的問題</h2>
-        <p>想像一個搶點原型。玩家在開場倒數還沒結束時就能得分，結算畫面出現後計分還會繼續跳動。這兩個現象都可以追溯到同一件事：遊戲沒有明確根據對局狀態決定何時允許得分。</p>
-      </section>
-      <section>
-        <h2>動手實驗</h2>
-        <ol>
-          <li>準備一個可以進出的得分區和一個畫面上看得到的計分器，將對局拆成「準備」、「進行」、「結算」三個狀態。</li>
+      <div class="article-content wrap">
+        <section>
+          <h2>想解決的問題</h2>
+          <p>想像一個搶點原型。玩家在開場倒數還沒結束時就能得分，結算畫面出現後計分還會繼續跳動。這兩個現象都可以追溯到同一件事：遊戲沒有明確根據對局狀態決定何時允許得分。</p>
+        </section>
+        <section>
+          <h2>動手實驗</h2>
+          <ol>
+            <li>準備一個可以進出的得分區和一個畫面上看得到的計分器，將對局拆成「準備」、「進行」、「結算」三個狀態。</li>
           <li>把三秒倒數結束設為開始條件，並只在進行中接受進入得分區的事件。每次從區外進入加一分，站在區內時保持分數。</li>
           <li>將三分設為結束條件。一旦達標，切到結算狀態，顯示最後分數，再提供重新開始的操作。</li>
-        </ol>
-      </section>
-      <section>
-        <h2>如何驗證</h2>
-        <ul>
-          <li>倒數歸零之前，進出得分區時分數維持零。進行中每次重新進區只加一分。</li>
+          </ol>
+        </section>
+        <section class="checks">
+          <h2>如何驗證</h2>
+          <ul>
+            <li>倒數歸零之前，進出得分區時分數維持零。進行中每次重新進區只加一分。</li>
           <li>第三次得分後只出現一次結算。結算期間即使再進入得分區，最終分數仍為三。</li>
           <li>重新開始會清掉分數與結算畫面，倒數也會從三秒重新開始。</li>
-        </ul>
-      </section>
-      <a class="back-link" href="../../#notes"><span aria-hidden="true">←</span> 返回筆記索引</a>
+          </ul>
+        </section>
+        <a class="back-link" href="../../#notes"><span aria-hidden="true">←</span> 返回筆記索引</a>
+      </div>
     </article>
   </main>
   <footer class="site-footer">

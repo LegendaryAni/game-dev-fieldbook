@@ -17,15 +17,16 @@ const server = createServer(async (request, response) => {
   const path = request.url.split('?', 1)[0];
   const relative = path.startsWith(prefix) ? path.slice(prefix.length) : null;
   const asset = /^assets\/(site\.css|favicon\.svg)$/.exec(relative ?? '');
+  const isArt = /^assets\/art\/(?:hero\/(?:desktop|mobile|cover)|[a-z0-9]+(?:-[a-z0-9]+)*)\.webp$/.test(relative ?? '');
   const isPage = relative === '' || /^notes\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(relative ?? '');
-  if (!['GET', 'HEAD'].includes(request.method) || (!asset && !isPage)) {
+  if (!['GET', 'HEAD'].includes(request.method) || (!asset && !isArt && !isPage)) {
     response.writeHead(404).end('Not found');
     return;
   }
 
   try {
-    const file = await readFile(join(docs, asset ? relative : `${relative}index.html`));
-    const contentType = asset ? assetTypes[asset[1]] : 'text/html; charset=utf-8';
+    const file = await readFile(join(docs, isPage ? `${relative}index.html` : relative));
+    const contentType = isPage ? 'text/html; charset=utf-8' : isArt ? 'image/webp' : assetTypes[asset[1]];
     response.writeHead(200, { 'Content-Type': contentType });
     response.end(request.method === 'HEAD' ? undefined : file);
   } catch (error) {
